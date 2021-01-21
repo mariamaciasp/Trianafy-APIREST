@@ -1,3 +1,5 @@
+import bcrypt from 'bcryptjs';
+import 'dotenv/config';
 class User {
     constructor(id, name, username, email, password) {
         this.id = id;
@@ -6,10 +8,21 @@ class User {
         this.email = email;
         this.password = password;
     }
+    toDto() {
+        return {
+            id: this.id,
+            name: this.name,
+            username: this.username, 
+            email: this.email
+        }
+    }
 }
+
+const password = bcrypt.hashSync('12345678', parseInt(process.env.BCRYPT_ROUNDS));
+
 let users = [
-    new User(1, 'Luis Miguel López'),
-    new User(2, 'Ángel Naranjo')
+    new User(1, 'Luis Miguel López', 'lmlopez', 'luismi@email.com', password),
+    new User(2, 'Ángel Naranjo', 'anaranjo', 'angel@email.com', password)
 ];
 
 // Método que nos va a permitir obtener la posición de un
@@ -22,6 +35,16 @@ const indexOfPorId = (id) => {
             posicionEncontrado = i;
     }
     return posicionEncontrado;
+}
+
+
+const usernameExists = (username) => {
+    let usernames = users.map(user => user.username);
+    return usernames.includes(username);
+}
+const emailExists = (email) => {
+    let emails = users.map(user => user.email);
+    return emails.includes(email);
 }
 
 const userRepository = {
@@ -39,11 +62,18 @@ const userRepository = {
        const posicion = indexOfPorId(id);
        return posicion == -1 ? undefined : users[posicion];
     },
+
+    findByUsername(username) {
+        let result = users.filter(user => user.username == username);
+        return Array.isArray(result) && result.length > 0 ? result[0] : undefined;   
+     },
+
     // Inserta un nuevo usuario y devuelve el usuario insertado
     create(newUser) {
         const lastId = users.length == 0 ? 0 : users[users.length-1].id;
         const newId = lastId + 1;
-        const result = new User(newId, newUser.name, newUser.username, newUser.email, newUser.password);
+        const result = new User(newId, newUser.name, newUser.username, newUser.email, 
+            bcrypt.hashSync(newUser.password, parseInt(process.env.BCRYPT_ROUNDS)));
         users.push(result);
         return result;
     },
@@ -74,5 +104,7 @@ const userRepository = {
 
 export {
     User,
-    userRepository
+    userRepository,
+    emailExists,
+    usernameExists
 }
