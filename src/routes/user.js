@@ -1,11 +1,10 @@
 import { Router } from 'express';
-
+import { UserController } from '../controller/user';
 const router = Router();
 
-router.get('/',(req, res) => {
-    res.send("¡Hola Mundo!");
-});
-router.get('/me', /* método controlador */);
-router.get('/:id', /* método controlador */);
+router.get('/', UserController.todosLosUsuarios);
+router.post('/', UserController.nuevoUsuario);
+router.put('/:id', UserController.editarUsuario);
+router.delete('/:id', UserController.eliminarUsuario);
 
 export default router;
