@@ -20,7 +20,6 @@ passport.use(new LocalStrategy({
     else
         return done(null, userRepository.toDto(user)); 
 
-
 }));
 
 
@@ -36,8 +35,7 @@ passport.use('token', new JwtStrategy(opts, async (jwt_payload, done)=>{
 
     // Extraemos el id del campo sub del payload
     const user_id = jwt_payload.sub;
-    console.log("idsdfsf")
-    console.log(user_id)
+
     // Buscamos el usuario por ID
     const user = await userRepository.findById(user_id);
     if (user == undefined)
