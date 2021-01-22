@@ -10,14 +10,15 @@ passport.use(new LocalStrategy({
     passwordField: "password",
     session: false
     
-},(username, password, done)=> {
-    const user = userRepository.findByUsername(username);
+}, async (username, password, done)=> {
+    const user = await userRepository.findByUsername(username);
+    console.log(user);
     if (user == undefined)
         return done(null, false); // El usuario no existe
     else if (!bcrypt.compareSync(password, user.password))
         return done(null, false); // No coincide la contraseña
     else
-        return done(null, user.toDto());
+        return done(null, userRepository.toDto(user)); 
 
 }));
 
@@ -30,13 +31,13 @@ const opts = {
 };
 
 
-passport.use('token', new JwtStrategy(opts, (jwt_payload, done)=>{
+passport.use('token', new JwtStrategy(opts, async (jwt_payload, done)=>{
 
     // Extraemos el id del campo sub del payload
     const user_id = jwt_payload.sub;
 
     // Buscamos el usuario por ID
-    const user = userRepository.findById(user_id);
+    const user = await userRepository.findById(user_id);
     if (user == undefined)
         return done(null, false); // No existe el usuario
     else
@@ -46,6 +47,8 @@ passport.use('token', new JwtStrategy(opts, (jwt_payload, done)=>{
 
 export const password = () => (req, res, next) =>
     passport.authenticate('local', {session: false}, (err, user, info) => {
+        console.log("aqui")
+        console.log(user)
         if (err)
             return res.status(400).json(err);
         else if (err || !user)
