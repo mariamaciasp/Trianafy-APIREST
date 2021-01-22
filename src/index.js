@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 app.use((req, res, next) => {
   // Para cualquier petición, añadimos en su contexto
   req.context = {
-    models
+    models,
   };
   next();
 });
