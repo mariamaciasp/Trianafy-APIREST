@@ -7,7 +7,7 @@ const songSchema = new Schema({
     title: String,
     artist: String,
     album: String,
-    year: String
+    year: Number
 });
 
 const Song = mongoose.model('Song', songSchema);
@@ -32,7 +32,7 @@ const songRepository = {
             year: newSong.year
         });
         const result = await theSong.save();
-        return this.toDto(theSong); // o result???
+        return this.toDto(result); // o result???
     },
 
     async updateById(id, modifierSong) {
