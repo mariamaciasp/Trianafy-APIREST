@@ -59,6 +59,6 @@ const UserController = {
 };
 
 
-export  {
+export {
     UserController
 }
