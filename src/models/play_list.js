@@ -65,8 +65,8 @@ const playListRepository = {
         await Play_list.findByIdAndRemove(id).exec();
     },
 
-    toDto(playList){
-        return {
+    async toDto(playList){
+        return await {
             id: playList.id,
             name: playList.name,
             description: playList.description,

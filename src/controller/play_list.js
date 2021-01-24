@@ -18,6 +18,24 @@ const PlayListController = {
         else
             res.sendStatus(404);
     },
+    
+    songsPlayList: async (req, res) => {
+        let playList = await playListRepository.findById(req.params.id_playList);
+        if(playList != undefined){
+            res.json(playList.songs);
+        }else{
+            res.sendStatus(400);
+        }
+    },
+ 
+    songsPlayListById: async (req, res) => { // esto no funciona seguro
+        let playList = await playListRepository.findById(req.params.id_playList);
+        if(playList != undefined) {
+            res.json(playList.songs.findById(req.params.id_song));
+        } else {
+            res.status(400).json({mensaje: "La canción no está en la play list"})
+        }
+    },
 
     createPlayList: async (req, res) => {
         let newPlayList = await playListRepository.create({
@@ -66,7 +84,7 @@ const PlayListController = {
             });
         }
     },
-
+  
     deleteSongPlayList: async (req, res) => {
         let play_list = await playListRepository.findById(req.params.id_playList);
         if(play_list != undefined) {
@@ -80,5 +98,8 @@ const PlayListController = {
         }
     }
 
-
 };
+
+export {
+    PlayListController
+}

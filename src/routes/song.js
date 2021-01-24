@@ -1,7 +1,5 @@
 import { Router } from 'express';
-import { param, body } from 'express-validator';
 import { SongController } from '../controller/song';
-import { validar } from '../middlewares/validacion';
 import { token } from '../service/passport';
 
 const router = Router ();
