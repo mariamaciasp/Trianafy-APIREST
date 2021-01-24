@@ -44,7 +44,8 @@ const playListRepository = {
         const pL = new Play_list ({
             name: newPlayList.name,
             description: newPlayList.description,
-            user_id: user
+            user_id: newPlayList.user_id/*, user?
+            songs: newPlayList.songs */
         });
         const result = await pL.save();
         return result;
