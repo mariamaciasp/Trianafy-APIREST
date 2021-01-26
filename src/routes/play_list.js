@@ -13,12 +13,14 @@ router.put('/:id', token(), PlayListController.editPlayList);
 router.delete('/:id', token(), PlayListController.deletePlayList);
 
 // con canciones de la play list
-
+// hay que hacer algo en la consulta de mostrar listas para que solo muestre al usuario las suyas!! y sus canciones claro
 router.get('/:id_playList/songs', token(), PlayListController.songsPlayList);
-router.get('/:id_playList/songs/:id_song', token(), PlayListController.songsPlayListById);
-router.post('/:id_playList/songs/:id_song', token(), PlayListController.addSongToPlayList);
-router.delete('/:id_playList/songs/:id_song', token(), PlayListController.deletePlayList);
+router.get('/:id_playList/songs/:id_song', token(), PlayListController.songsPlayListById); // ESTE NO FUNCIONA
+router.post('/:id_playList/songs/:id_song', token(), PlayListController.addSongToPlayList); 
+// probar para no meter dos iguales en la misma lista
 
+router.delete('/:id_playList/songs/:id_song', token(), PlayListController.deletePlayList);
+// NO BORRA LA CANCIÓN 
 
 export default router;
 
