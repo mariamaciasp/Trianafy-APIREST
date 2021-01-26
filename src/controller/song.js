@@ -38,17 +38,17 @@ const SongController = {
             album: req.body.album,
             year: req.body.year
         });
-        if (editSong == undefined) 
-            res.sendStatus(404);
+        if (editSong != undefined) 
+            res.status(200).json(editSong);
         //else if (req.params.id != req.body.id)
         //    res.status(409);
         else
-            res.status(200).json(editSong);
+            res.sendStatus(404);
     },
 
     deleteSong: async (req, res) => {
         await songRepository.delete(req.params.id);
-        req.sendStatus(204);
+        res.sendStatus(204);
     }
 
 };

@@ -133,8 +133,8 @@ const userRepository = {
         await User.findByIdAndRemove(id).exec();
     },
 
-    toDto(user) {
-        return {
+    async toDto(user) {
+        return await {
             id: user.id,
             name: user.name,
             username: user.username, 
@@ -142,7 +142,6 @@ const userRepository = {
         }
     }
     
-
 };
 
 
