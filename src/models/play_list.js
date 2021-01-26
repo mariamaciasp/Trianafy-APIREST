@@ -22,7 +22,7 @@ const Play_list = mongoose.model('Play_list', playListSchema);
 
 const playListRepository = {
 
-    async findAll() {
+    async findAll(user_id) {
 
         return await 
             Play_list.find({}).
@@ -40,12 +40,12 @@ const playListRepository = {
             exec();
     },
 
-    async create(user, newPlayList){
+    async create(newPlayList){
         const pL = new Play_list ({
             name: newPlayList.name,
             description: newPlayList.description,
-            user_id: newPlayList.user_id/*, user?
-            songs: newPlayList.songs */
+            user_id: newPlayList.user_id,/* user?*/
+            songs: []
         });
         const result = await pL.save();
         return result;

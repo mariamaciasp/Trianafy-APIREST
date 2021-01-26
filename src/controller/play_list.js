@@ -41,8 +41,8 @@ const PlayListController = {
         let newPlayList = await playListRepository.create({
             name: req.body.name,
             description: req.body.description,
-            user_id: req.user.id/*,
-            songs: []*/
+            user_id: req.user.id,
+            songs: []
         })
         res.status(201).json(newPlayList);
     },
@@ -52,7 +52,6 @@ const PlayListController = {
             name: req.body.name,
             description: req.body.description,
             user_id: req.user.id,
-            songs: req.body.songs
         });
         if (editPlayList != undefined) 
             res.status(200).json(editPlayList);

@@ -49,8 +49,8 @@ const songRepository = {
         await Song.findByIdAndRemove(id).exec();
     },
 
-    toDto(song) {
-        return {
+    async toDto(song) {
+        return await{
             id: song.id,
             title: song.title,
             artist: song.artist,
