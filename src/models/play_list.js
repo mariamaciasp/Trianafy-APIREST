@@ -22,7 +22,7 @@ const Play_list = mongoose.model('Play_list', playListSchema);
 
 const playListRepository = {
 
-    async findAll(user_id) {
+    async findAll(/*user_id*/) {
 
         return await 
             Play_list.find({}).
@@ -66,8 +66,8 @@ const playListRepository = {
         await Play_list.findByIdAndRemove(id).exec();
     },
 
-    async toDto(playList){
-        return await {
+    toDto(playList){
+        return {
             id: playList.id,
             name: playList.name,
             description: playList.description,

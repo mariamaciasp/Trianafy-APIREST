@@ -23,9 +23,10 @@ const AuthController = {
         });
     },
     login: async (req, res, next) => {
-        // Dado que la mitad del esfuerzo lo hace la función password del servicio passport
-        // Aquí tan solo tenemos que preocuparnos de generar y devolver el token
+
         const token = await JwtService.sign(req.user);
+        console.log("intento imprimir")
+        console.log(req.user);
         res.status(201).json({
             user: req.user,
             token: token

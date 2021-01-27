@@ -133,8 +133,8 @@ const userRepository = {
         await User.findByIdAndRemove(id).exec();
     },
 
-    async toDto(user) {
-        return await {
+    toDto(user) {
+        return {
             id: user.id,
             name: user.name,
             username: user.username, 
