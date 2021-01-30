@@ -4,9 +4,7 @@ import { playListRepository } from '../models/play_list'
 const PlayListController = {
 
     allPlayList: async (req, res) => {
-        const data = await playListRepository.findAll(req.user.id);
-        console.log(data);
-        console.log(req.user.id);
+        const data = await playListRepository.findAll(/*req.user.id*/);
         if(Array.isArray(data) && data.length > 0) 
             res.json(data);
         else
@@ -23,17 +21,18 @@ const PlayListController = {
     
     songsPlayList: async (req, res) => {
         let playList = await playListRepository.findById(req.params.id_playList);
-        if(playList != undefined && playList.user_id == req.user.id){
+        if(playList != undefined){
             res.json(playList.songs);
         }else{
             res.sendStatus(400);
         }
     },
  
-    songsPlayListById: async (req, res) => { // esto no funciona seguro
-        let playList = await playListRepository.findById(req.params.id_playList);
-        if(playList != undefined) {
-            res.json(playList.songs.findById(req.params.id_song));
+    songsPlayListById: async (req, res) => { 
+        let song = await playListRepository.findSongId(req.params.id_playList, req.params.id_song);
+
+        if(song != undefined) {
+            res.json(song);
         } else {
             res.status(400).json({mensaje: "La canción no está en la play list"})
         }
@@ -70,10 +69,22 @@ const PlayListController = {
         let song = await songRepository.findById(req.params.id_song);
         if(song != undefined) {
             let play_list = await playListRepository.findById(req.params.id_playList);
-            if(play_list != undefined) {
+            //let findSongPlayList = await this.songsPlayListById(req.params.id_playList, req.params.id_song);
+            //console.log(findSongPlayList);
+            let findSongPlayList = await playListRepository.findSongId(req.params.id_playList, req.params.id_song);
+            console.log(findSongPlayList);
+            if(play_list != undefined && findSongPlayList == undefined && req.user.id == play_list.user_id.id) {
                 play_list.songs.push(song);
                 await play_list.save();
                 res.json(await playListRepository.findById(play_list._id));
+            }else if(req.user.id != play_list.user_id.id){
+                res.status(400).json({
+                    mensaje: "Error de usuario autenticado"
+                });
+            }else if(findSongPlayList != undefined){
+                res.status(400).json({
+                    mensaje: `La play canción con ID:  ${req.params.id_song} ya está en la play list.`
+                });
             }else{
                 res.status(400).json({
                     mensaje: `La play list con ID:  ${req.params.id_playList} no está en la base de datos.`
@@ -88,12 +99,16 @@ const PlayListController = {
   
     deleteSongPlayList: async (req, res) => {
         let play_list = await playListRepository.findById(req.params.id_playList);
-        if(play_list != undefined) {
+        if(play_list != undefined && req.user.id == play_list.user_id.id) {
             play_list.songs.pull(req.params.id_song);
             await play_list.save();
-            res.json(await playListRepository.findById(play_list._id));
-        }else{
+            res.status(204).json(await playListRepository.findById(play_list._id));
+        }else if(req.user.id != play_list.user_id.id){
             res.status(400).json({
+                mensaje: "Error de usuario autenticado"
+            })
+        }else{
+            res.status(404).json({
                 mensaje: `La play list con ID: ${req.params.id_playList} no está registrada en la base de datos`
             });
         }
