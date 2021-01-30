@@ -22,16 +22,23 @@ const Play_list = mongoose.model('Play_list', playListSchema);
 
 const playListRepository = {
 
-    async findAll(/*user_id*/) {
-
-        return await 
-            Play_list.find({}).
+    async findAll(userId) {
+        console.log(userId);
+        const result = await Play_list.find({user_id: userId}).exec();
+        return result; /*await 
+            Play_list.find({user_id: userId,}).
             populate('user_id','_id').
             populate('songs').
-            exec();
+            exec();*/
 
-    },
+    },/*
+    async findAll(userId) {
 
+        const result = await Play_list.find({
+          user_id: userId
+        }).populate("songs").exec();
+        return result;},
+*/
     async findById(id) {
         return await 
             Play_list.findById(id).

@@ -4,7 +4,9 @@ import { playListRepository } from '../models/play_list'
 const PlayListController = {
 
     allPlayList: async (req, res) => {
-        const data = await playListRepository.findAll();
+        const data = await playListRepository.findAll(req.user.id);
+        console.log(data);
+        console.log(req.user.id);
         if(Array.isArray(data) && data.length > 0) 
             res.json(data);
         else
@@ -21,7 +23,7 @@ const PlayListController = {
     
     songsPlayList: async (req, res) => {
         let playList = await playListRepository.findById(req.params.id_playList);
-        if(playList != undefined){
+        if(playList != undefined && playList.user_id == req.user.id){
             res.json(playList.songs);
         }else{
             res.sendStatus(400);
