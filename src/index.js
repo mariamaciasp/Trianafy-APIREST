@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 });
 
 
-app.use('/user', routes.user);
+//app.use('/user', routes.user);
 app.use('/auth', routes.auth);
 app.use('/songs', routes.song);
 app.use('/lists', routes.playList);
