@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "6018709701781e06c0249b4f"
+  },
+  "name": "maria",
+  "username": "maria",
+  "email": "maria@mail.com",
+  "password": "$2a$12$/1afdOXMnS1Xr2STKCFoSOHLtM6FNcq4Ns7kTq4aT.Nonstx/mfd6"
+},{
+  "_id": {
+    "$oid": "601870e501781e06c0249b50"
+  },
+  "name": "Luis Miguel",
+  "username": "luismi",
+  "email": "luismi@salesianos.com",
+  "password": "$2a$12$VXfaLY.MlBIrIHEoiX9nuONtvG6HTsWOfUJumHcByGd5fWmtKhEmC"
+},{
+  "_id": {
+    "$oid": "6018711201781e06c0249b51"
+  },
+  "name": "Ángel Naranjo",
+  "username": "angel",
+  "email": "angel@salesianos.com",
+  "password": "$2a$12$ttPFQBHfGDGpqONSoGwt4O06NZKcAcf7ehtohj.YNb01x1oVhy2u2"
+},{
+  "_id": {
+    "$oid": "6018712001781e06c0249b52"
+  },
+  "name": "Miguel Campos",
+  "username": "miguel",
+  "email": "miguel@salesianos.com",
+  "password": "$2a$12$nU/7gC/ouovfEgxnFMYyXujRuYBpoAXmpEpwj41ApcYu2kCV.GWU."
+}]

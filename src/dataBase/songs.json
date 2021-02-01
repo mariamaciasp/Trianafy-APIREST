@@ -1,0 +1,217 @@
+[{
+  "_id": {
+    "$oid": "6018721c01781e06c0249b53"
+  },
+  "title": "Quién más, quién menos",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "6018722901781e06c0249b54"
+  },
+  "title": "No tan deprisa",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "6018723301781e06c0249b55"
+  },
+  "title": "Lo niego todo",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "6018724701781e06c0249b56"
+  },
+  "title": "Postdata",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "6018725101781e06c0249b57"
+  },
+  "title": "Lágrimas de mármol",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "6018725b01781e06c0249b58"
+  },
+  "title": "Leningrado",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "6018726201781e06c0249b59"
+  },
+  "title": "Canción de primavera",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "6018726f01781e06c0249b5a"
+  },
+  "title": "Sin pena ni gloria",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "6018727901781e06c0249b5b"
+  },
+  "title": "Las noches de domingo acaban mal",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "6018728701781e06c0249b5c"
+  },
+  "title": "¿Qué estoy haciendo aquí?",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "6018729801781e06c0249b5d"
+  },
+  "title": "Churumbelas",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "601872a301781e06c0249b5e"
+  },
+  "title": "Por delicadeza",
+  "artist": "Joaquín Sabina",
+  "album": "Lo niego todo",
+  "year": 2017
+},{
+  "_id": {
+    "$oid": "601872ef01781e06c0249b5f"
+  },
+  "title": "Y nos dieron las diez",
+  "artist": "Joaquín Sabina",
+  "album": "Física y química",
+  "year": 1992
+},{
+  "_id": {
+    "$oid": "601872fd01781e06c0249b60"
+  },
+  "title": "Conductores suicidas",
+  "artist": "Joaquín Sabina",
+  "album": "Física y química",
+  "year": 1992
+},{
+  "_id": {
+    "$oid": "6018730c01781e06c0249b61"
+  },
+  "title": "Yo quiero ser una chica Almodóvar",
+  "artist": "Joaquín Sabina",
+  "album": "Física y química",
+  "year": 1992
+},{
+  "_id": {
+    "$oid": "6018731501781e06c0249b62"
+  },
+  "title": "A la orilla de la chimenea",
+  "artist": "Joaquín Sabina",
+  "album": "Física y química",
+  "year": 1992
+},{
+  "_id": {
+    "$oid": "6018732001781e06c0249b63"
+  },
+  "title": "Todos menos tú",
+  "artist": "Joaquín Sabina",
+  "album": "Física y química",
+  "year": 1992
+},{
+  "_id": {
+    "$oid": "6018732e01781e06c0249b64"
+  },
+  "title": "La del pirata cojo",
+  "artist": "Joaquín Sabina",
+  "album": "Física y química",
+  "year": 1992
+},{
+  "_id": {
+    "$oid": "6018733701781e06c0249b65"
+  },
+  "title": "La canción de las noches perdidas",
+  "artist": "Joaquín Sabina",
+  "album": "Física y química",
+  "year": 1992
+},{
+  "_id": {
+    "$oid": "6018734001781e06c0249b66"
+  },
+  "title": "Los cuentos que yo cuento",
+  "artist": "Joaquín Sabina",
+  "album": "Física y química",
+  "year": 1992
+},{
+  "_id": {
+    "$oid": "6018734d01781e06c0249b67"
+  },
+  "title": "Peor para el sol",
+  "artist": "Joaquín Sabina",
+  "album": "Física y química",
+  "year": 1992
+},{
+  "_id": {
+    "$oid": "6018735801781e06c0249b68"
+  },
+  "title": "Amor se llama el juego",
+  "artist": "Joaquín Sabina",
+  "album": "Física y química",
+  "year": 1992
+},{
+  "_id": {
+    "$oid": "6018736001781e06c0249b69"
+  },
+  "title": "Pastillas para no soñar",
+  "artist": "Joaquín Sabina",
+  "album": "Física y química",
+  "year": 1992
+},{
+  "_id": {
+    "$oid": "6018738b01781e06c0249b6a"
+  },
+  "title": "Y si amanece por fin",
+  "artist": "Joaquín Sabina",
+  "album": "Mentiras piadosas",
+  "year": 1990
+},{
+  "_id": {
+    "$oid": "6018739801781e06c0249b6b"
+  },
+  "title": "Mentiras piadosas",
+  "artist": "Joaquín Sabina",
+  "album": "Mentiras piadosas",
+  "year": 1990
+},{
+  "_id": {
+    "$oid": "601873de01781e06c0249b6c"
+  },
+  "title": "Contigo",
+  "artist": "Joaquín Sabina",
+  "album": "Yo, mi, me, contigo",
+  "year": 1996
+},{
+  "_id": {
+    "$oid": "601873eb01781e06c0249b6d"
+  },
+  "title": "Y sin embargo",
+  "artist": "Joaquín Sabina",
+  "album": "Yo, mi, me, contigo",
+  "year": 1996
+}]
