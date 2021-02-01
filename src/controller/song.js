@@ -19,13 +19,19 @@ const SongController = {
     },
 
     createSong: async (req, res) => {
-        let newSong = await songRepository.create({
-            title: req.body.title,
-            artist: req.body.artist,
-            album: req.body.album,
-            year: req.body.year
-        })
-        res.status(201).json(newSong);
+        try{
+            let newSong = await songRepository.create({
+                title: req.body.title,
+                artist: req.body.artist,
+                album: req.body.album,
+                year: req.body.year
+            })
+            res.status(201).json(newSong);
+
+        }catch(error){
+            res.status(400).json({Error:`Error al agregar canción: ${error.message}`})
+        }
+        
         // poner un else if y si newSong.title == null tal y si no lo otro
         // Si el nombre de la canción no es válido (por ejemplo, es nulo), debe devolver 400 Bad Request
     },
@@ -40,10 +46,10 @@ const SongController = {
         });
         if (editSong != undefined) 
             res.status(200).json(editSong);
-        //else if (req.params.id != req.body.id)
-        //    res.status(409);
+        else if (editSong == undefined)
+            res.status(404);
         else
-            res.sendStatus(404);
+            res.sendStatus(409);
     },
 
     deleteSong: async (req, res) => {

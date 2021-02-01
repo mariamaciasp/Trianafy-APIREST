@@ -15,7 +15,7 @@ const playListSchema = new Schema ({
         type: mongoose.ObjectId,
         ref: 'Song'
     }]
-});
+}, {versionKey: false});
 
 const Play_list = mongoose.model('Play_list', playListSchema);
 
@@ -56,7 +56,7 @@ const playListRepository = {
         const pL = new Play_list ({
             name: newPlayList.name,
             description: newPlayList.description,
-            user_id: newPlayList.user_id,/* user?*/
+            user_id: newPlayList.user_id,
             songs: []
         });
         const result = await pL.save();
@@ -73,8 +73,11 @@ const playListRepository = {
         }
     },
 
-    async delete(id) {
-        await Play_list.findByIdAndRemove(id).exec();
+    async delete(id, id_user) {
+        await Play_list.deleteOne({
+            _id:id,
+            user_id: id_user 
+        }).exec();
     },
 
     toDto(playList){
